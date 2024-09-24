@@ -20,7 +20,7 @@ import {
   ToggleOff,
 } from "@mui/icons-material";
 
-const SideBar = () => {
+const SideBar = ({mode,setMode}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = (event, index) => {
@@ -30,8 +30,7 @@ const SideBar = () => {
   return (
     <Box
       sx={{
-        width:"100%",
-        bgcolor: "#f5f5f5",
+        width:"100%", 
         display: { xs: "none", sm: "block" },
         flex:1,
         p:2
@@ -117,7 +116,7 @@ const SideBar = () => {
             <ListItemIcon>
               <DarkMode />
             </ListItemIcon>
-            <Switch />
+            <Switch onChange={()=>setMode(mode === "light" ? "dark" : "light")} />
           </ListItemButton>
         </ListItem>
       </List>
